@@ -1,0 +1,13 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'me.s1204.GalaxyCamSnd'
+    compileSdk 33
+    defaultConfig {
+        minSdk 21
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 22
+        versionCode 1
+        versionName "1.0"
+    }
+}
