@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Galaxy CamSnd</string>
-  <string name="disable">無効</string>
+  <string name="disable">1</string>
+  <string name="enable">0</string>
 </resources>

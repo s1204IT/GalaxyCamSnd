@@ -7,16 +7,26 @@
     <application
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".DisableActivity"
             android:exported="true"
             android:icon="@drawable/ic_launcher"
-            android:label="@string/disable"
-            android:theme="@style/AppTheme">
+            android:label="@string/disable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnableActivity"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/enable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
