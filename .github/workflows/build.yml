@@ -37,7 +37,7 @@ jobs:
         with:
           path: |
             ~/.gradle/caches
-            ~/.gradle/wrapper/dists/gradle-7.3.3-bin
+            ~/.gradle/wrapper/dists/gradle-7.4-bin
           key: ${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
       - name: Build with Gradle
         run: ./gradlew assemble
