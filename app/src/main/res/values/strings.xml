@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Galaxy CamSnd</string>
-  <string name="disable">0</string>
-  <string name="enable">1</string>
-  <string name="tile">シャッター音</string>
+  <string name="disable">無音カメラ</string>
+  <string name="enable">シャッター音</string>
 </resources>
