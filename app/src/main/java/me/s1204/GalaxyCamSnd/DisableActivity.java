@@ -13,8 +13,6 @@ public class DisableActivity extends Activity {
     putInt(getContentResolver(), "csc_pref_camera_forced_shuttersound_key", 0);
     super.onDestroy();
     finishAndRemoveTask();
-    Intent camera=new Intent();
-    camera.setClassName("com.sec.android.app.camera", "com.sec.android.app.camera.Camera");
-    startActivity(camera);
+    startActivity((new Intent()).setClassName("com.sec.android.app.camera", "com.sec.android.app.camera.Camera"));
   }
 }
