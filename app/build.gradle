@@ -4,7 +4,7 @@ android {
     namespace 'me.s1204.GalaxyCamSnd'
     compileSdk 33
     defaultConfig {
-        minSdk 21
+        minSdk 28
         //noinspection ExpiredTargetSdkVersion
         targetSdk 22
         versionCode 4
