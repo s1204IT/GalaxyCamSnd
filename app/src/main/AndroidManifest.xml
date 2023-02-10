@@ -24,23 +24,11 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".EnableActivity"
-            android:exported="true"
-            android:icon="@drawable/ic_camera"
-            android:label="@string/enable">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <service
             android:name=".OneTapService"
             android:exported="true"
             android:icon="@drawable/sec_do_not_disturb_off"
-            android:label="@string/enable"
+            android:label="@string/tile"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
