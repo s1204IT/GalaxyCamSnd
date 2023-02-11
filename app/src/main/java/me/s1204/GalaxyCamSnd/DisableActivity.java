@@ -12,7 +12,7 @@ public class DisableActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     if (!canWrite(this)) {
-      startActivity(new Intent("android.settings.action.MANAGE_WRITE_SETTINGS", parse("package:me.s1204.GalaxyCamSnd")));
+      startActivity(new Intent("android.settings.action.MANAGE_WRITE_SETTINGS", parse("package:me.s1204.GalaxyCamSnd")).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
       finishAndRemoveTask();
     }
     super.onCreate(savedInstanceState);
