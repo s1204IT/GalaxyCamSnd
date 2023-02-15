@@ -6,19 +6,20 @@ import android.service.quicksettings.TileService;
 import static android.provider.Settings.System.putInt;
 
 public class OneTapService extends TileService {
+    @Override
     public void onClick() {
+        super.onClick();
         Tile tile = getQsTile();
-        switch (tile.getState()){
-            case Tile.STATE_ACTIVE:
+        int state = tile.getState();
+        if (state != Tile.STATE_INACTIVE) {
+            if (state == Tile.STATE_ACTIVE) {
                 putInt(getContentResolver(), "csc_pref_camera_forced_shuttersound_key", 1);
-                tile.setState(Tile.STATE_INACTIVE);
-                break;
-            case Tile.STATE_INACTIVE:
-                putInt(getContentResolver(), "csc_pref_camera_forced_shuttersound_key", 0);
-                tile.setState(Tile.STATE_ACTIVE);
-                break;
-            default:
-                break;
+            }
+            tile.setState(Tile.STATE_INACTIVE);
+        } else {
+            // TODO: BootCompletedReceiverの実装
+            putInt(getContentResolver(), "csc_pref_camera_forced_shuttersound_key", 0);
+            tile.setState(Tile.STATE_ACTIVE);
         }
         tile.updateTile();
     }
