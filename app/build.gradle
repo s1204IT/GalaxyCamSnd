@@ -1,22 +1,32 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    namespace 'me.s1204.GalaxyCamSnd'
     compileSdk 33
+    buildToolsVersion "30.0.3"
+
     defaultConfig {
+        applicationId 'me.s1204.GalaxyCamSnd'
         minSdk 28
-        //noinspection ExpiredTargetSdkVersion
         targetSdk 22
-        versionCode 5
-        versionName "1.1.2"
+        versionCode 6
+        versionName "1.2"
 
     }
+
     buildTypes {
         debug {
+            signingConfig signingConfigs.debug
             minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
+            //signingConfig signingConfigs.release
             minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
