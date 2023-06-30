@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId 'me.s1204.GalaxyCamSnd'
+        applicationId 'me.s1204.galaxycamsnd'
         minSdk 28
         targetSdk 22
         versionCode 6

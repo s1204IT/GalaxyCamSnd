@@ -10,7 +10,7 @@
         android:label="Galaxy CamSnd">
 
         <activity
-            android:name="me.s1204.galaxycamsnd.DisableActivity"
+            android:name=".DisableActivity"
             android:exported="true"
             android:label="無音カメラ">
             <intent-filter>
