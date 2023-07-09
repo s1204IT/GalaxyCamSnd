@@ -12,7 +12,7 @@
         <activity
             android:name=".DisableActivity"
             android:exported="true"
-            android:label="@strings/disabled_camera">
+            android:label="@string/disabled_camera">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
@@ -23,8 +23,9 @@
 
         <receiver
             android:name=".DeviceAdminReceiver"
-            android:description="@strings/uninstall_block"
+            android:description="@string/uninstall_block"
             android:exported="false"
+            android:label="@string/disabled_camera"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <intent-filter>
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
