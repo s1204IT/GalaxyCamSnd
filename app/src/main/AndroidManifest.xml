@@ -23,7 +23,6 @@
 
         <receiver
             android:name=".DeviceAdminReceiver"
-            android:description="@string/uninstall_block"
             android:exported="false"
             android:label="@string/disabled_camera"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
