@@ -42,13 +42,13 @@ jobs:
       - name: Build with Gradle
         run: |
           if [[ "${{ github.event.inputs.release }}" != "true" ]]; then
-            ./gradlew aD
+            ./gradlew assembleDebug
           else
             echo -ne "${{ secrets.STORE_FILE }}" | base64 -d > app/release.jks
             export STORE_PASSWORD="${{ secrets.STORE_PASSWORD }}"
             export KEY_ALIAS="${{ secrets.KEY_ALIAS }}"
             export KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
-            ./gradlew aR
+            ./gradlew assembleRelease
             cp -f app/build/outputs/apk/release/app-release.apk app/GalaxyCamSnd.apk
           fi
           echo "version=$(grep versionName app/build.gradle | awk '{print $2}' | tr -d \")" >> $GITHUB_ENV
