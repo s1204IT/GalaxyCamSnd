@@ -10,9 +10,17 @@ android {
         applicationId 'me.s1204.galaxycamsnd'
         minSdk 28
         targetSdk 22
-        versionCode 6
-        versionName "1.2"
+        versionCode 7
+        versionName "1.2.1"
+    }
 
+    signingConfigs {
+        release {
+            storeFile file('release.jks')
+            storePassword System.getenv('STORE_PASSWORD')
+            keyAlias System.getenv('KEY_ALIAS')
+            keyPassword System.getenv('KEY_PASSWORD')
+        }
     }
 
     buildTypes {
@@ -23,7 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            //signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
