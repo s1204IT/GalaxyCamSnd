@@ -16,9 +16,17 @@
             android:label="@string/disabled_camera">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DeleteActivity"
+            android:exported="true"
+            android:label="Uninstall GalaxyCamSnd">
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
             </intent-filter>
         </activity>
 
