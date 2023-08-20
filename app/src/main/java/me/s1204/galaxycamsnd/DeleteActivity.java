@@ -11,7 +11,7 @@ public class DeleteActivity extends Activity {
         super.onCreate(savedInstanceState);
         finishAndRemoveTask();
         try {
-            Settings.System.putInt(getContentResolver(), "csc_pref_camera_forced_shuttersound_key", null);
+            Settings.System.putInt(getContentResolver(), "csc_pref_camera_forced_shuttersound_key", 1);
         } finally {
             startActivity(new Intent(Intent.ACTION_DELETE).setData(Uri.parse("package:" + getPackageName())));
         }
