@@ -13,9 +13,9 @@ public class DisableActivity extends Activity {
         finishAndRemoveTask();
         if (Settings.System.canWrite(this)) {
             Settings.System.putInt(getContentResolver(), "csc_pref_camera_forced_shuttersound_key", 1);
-            Toast.makeText(this, "@string/enabled", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.enabled, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "@string/write", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.write, Toast.LENGTH_LONG).show();
             startActivity(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
     }
