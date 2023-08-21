@@ -1,5 +1,6 @@
 <resources>
     <string name="disabled_camera">無音カメラ</string>
+    <string name="enable">シャッター音の有効化</string>
     <string name="enabled">シャッター音を有効にしました</string>
     <string name="write">｢Galaxy CamSnd｣を有効にしてください</string>
 </resources>
