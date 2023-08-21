@@ -15,6 +15,4 @@
 - Galaxy S20 5G
 - Galaxy S9+ :warning:  
   トーストメッセージ非表示
-<!--
-- Galaxy S8
--->
+- Galaxy S8 :x:
