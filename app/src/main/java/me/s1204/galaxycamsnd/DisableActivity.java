@@ -1,6 +1,7 @@
 package me.s1204.galaxycamsnd;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import static android.content.Intent.*;
