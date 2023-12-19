@@ -35,14 +35,14 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          if [[ "${{ github.event.inputs.release }}" != "true" ]]; then
-            ./gradlew assembleDebug
-          else
+          if [[ -n "${{ secrets.STORE_FILE }}" ]] && [[ -n "${{ secrets.STORE_PASSWORD }}" ]] && [[ -n "${{ secrets.KEY_ALIAS }}" ]] && [[ -n "${{ secrets.KEY_PASSWORD }}" ]]; then
             echo "${{ secrets.STORE_FILE }}" | base64 -d > app/release.jks
             export STORE_PASSWORD="${{ secrets.STORE_PASSWORD }}"
             export KEY_ALIAS="${{ secrets.KEY_ALIAS }}"
             export KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
             ./gradlew assembleRelease
+          else
+            ./gradlew assembleDebug
           fi
           {
             echo "version=v$(grep versionName app/build.gradle | awk '{print $2}' | tr -d \")"
