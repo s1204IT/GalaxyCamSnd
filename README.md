@@ -20,7 +20,8 @@
 ---
 
 ## 検証端末
-- Galaxy S22 ⭕
+- Galaxy S22 One UI 6.0 ⭕
+- Galaxy S22 One UI 5.1 ⭕
 - Galaxy S20 5G ⭕
 - Galaxy S9+ :warning:  
   トーストメッセージ非表示
