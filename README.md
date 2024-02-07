@@ -17,7 +17,7 @@
 
 ## インストール方法
 
-1. [**ここ**](https://github.com/s1204IT/GalaxyCamSnd/releases/latest/download/GalaxyCamSnd.apk)からアプリファイル(APK)をダウンロードする
+1. [**ここ**](https://github.com/s1204IT/GalaxyCamSnd/releases/latest/)からアプリファイル(APK)をダウンロードする
 2. ダウンロード後、｢**開く**｣を押す
   > [!TIP]
   > ｢セキュリティ上の理由から...｣と表示された場合は、  

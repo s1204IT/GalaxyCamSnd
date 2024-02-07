@@ -1,2 +1,18 @@
-rootProject.name = 'GalaxyCamSnd'
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    plugins {
+        id 'com.android.application' version '8.2.2' apply false
+    }
+}
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'Galaxy CamSnd'
 include ':app'
