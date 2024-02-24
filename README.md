@@ -6,7 +6,7 @@
 > このアプリは決して [**盗撮**](https://atomfirm.com/keiji/279) 等の犯罪を助長する為に作成したアプリではありません。
 
 > [!NOTE]
-> One UI 6.0 以降では、｢お使いのスマートフォンに対応していないため...｣と表示され、パッケージインストーラーからアプリをインストールする事が出来なくなりました。  
+> One UI 6.0 ([Android 14](https://developer.android.com/about/versions/14/behavior-changes-all?hl=ja#minimum-target-api-level))以降では、｢お使いのスマートフォンに対応していないため...｣と表示され、パッケージインストーラーからアプリをインストールする事が出来なくなりました。  
 > 解決策を模索しているので、それまでは、ADBによるインストールをお願いします。
 > ```
 > adb install --bypass-low-target-sdk-block GalaxyCamSnd.apk
@@ -33,12 +33,15 @@
 →Galaxy CamSnd  
 →アプリ内の通知設定  
 
+[![](https://github.com/s1204IT/GalaxyCamSnd/assets/52069677/e658c9cf-0ee8-4a04-bbc7-3c6666bab7b5)](#)
+
+
 ---
 
 ## 検証端末
-- Galaxy S22 One UI 6.0 ⭕
-- Galaxy S22 One UI 5.1 ⭕
-- Galaxy S20 5G ⭕
-- Galaxy S9+ :warning:  
-  トーストメッセージ非表示
-- Galaxy S8 :x:
+- Galaxy S22 (One UI 6.0) ⭕
+- Galaxy S22 (One UI 5.1) ⭕
+- Galaxy S20 5G (One UI 5.1) ⭕
+- Galaxy S9+ (One UI 2.1) ⭕
+- Galaxy S8 (One UI 1.0) :warning: ❌  
+  ボリュームは小さくなるが消えはしない
