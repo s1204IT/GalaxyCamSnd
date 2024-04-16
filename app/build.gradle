@@ -12,6 +12,8 @@ android {
         targetSdk 22
         versionCode 14
         versionName "1.4.2"
+        multiDexEnabled false
+        proguardFiles += 'proguard-rules.pro'
     }
 
     signingConfigs {
@@ -30,26 +32,16 @@ android {
     }
 
     buildTypes {
-        debug {
-            minifyEnabled true
-            shrinkResources true
-            multiDexEnabled false
-            proguardFiles += 'proguard-rules.pro'
+        configureEach {
             signingConfig signingConfigs.android
         }
         release {
             minifyEnabled true
             shrinkResources true
-            multiDexEnabled false
-            proguardFiles += 'proguard-rules.pro'
             if (file('release.jks').exists()) {
                 signingConfig signingConfigs.release
             }
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
 }
