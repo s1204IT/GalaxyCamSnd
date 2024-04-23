@@ -7,7 +7,7 @@
 
 > [!NOTE]
 > One UI 6.0 ([Android 14](https://developer.android.com/about/versions/14/behavior-changes-all?hl=ja#minimum-target-api-level))以降では、｢お使いのスマートフォンに対応していないため...｣と表示され、パッケージインストーラーからアプリをインストールする事が出来なくなりました。  
-> 解決策を模索しているので、それまでは、ADBによるインストールをお願いします。
+> [解決策を模索している](https://issuetracker.google.com/issues/323771601#comment4)ので、それまでは、ADBによるインストールをお願いします。
 > ```
 > adb install --bypass-low-target-sdk-block GalaxyCamSnd.apk
 > ```
@@ -45,3 +45,8 @@
 - Galaxy S9+ (One UI 2.1) ⭕
 - Galaxy S8 (One UI 1.0) :warning: ❌  
   ボリュームは小さくなるが消えはしない
+
+> [!NOTE]
+> 検証済み端末でもシャッター音が鳴る事が確認されています。  
+> このアプリ固有の問題では無いようです。  
+> 原因を特定中ですので解決するまでお待ちください。
