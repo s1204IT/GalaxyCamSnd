@@ -1,0 +1,16 @@
+name: PR Moderation
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+
+jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check tasklist
+        uses: Awayume/github-pr-tasklist-checker@v1
