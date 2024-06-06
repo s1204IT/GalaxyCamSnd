@@ -31,14 +31,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches/
-            ~/.gradle/wrapper/
-            ./.gradle/
-          key: ${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
 
       - name: Set environments
         run: |
@@ -50,13 +44,13 @@ jobs:
 
       - name: Check tag exists
         uses: mukunku/tag-exists-action@v1.6.0
-        if: github.event.inputs.release == 'true'
+        if: github.event.inputs.release
         id: check-tag
         with:
           tag: "${{ env.version }}"
 
       - name: Release check
-        if: github.event.inputs.release == 'true'
+        if: github.event.inputs.release
         run: |
           if [ "${{ secrets.STORE_FILE }}" == "" ]; then
             echo -e "\nERROR!\nTo release, you need to set up a signing key! \n"
@@ -81,11 +75,11 @@ jobs:
             export STORE_PASSWORD="${{ secrets.STORE_PASSWORD }}"
             export KEY_ALIAS="${{ secrets.KEY_ALIAS }}"
             export KEY_PASSWORD="${{ secrets.KEY_PASSWORD }}"
-            ./gradlew aR bR
+            ./gradlew assembleRelease bundleRelease
             cp -f app/build/outputs/apk/release/app-release.apk ${{ env.repo }}-${{ env.version }}.apk
             cp -f app/build/outputs/bundle/release/app-release.aab ${{ env.repo }}-${{ env.version }}.aab
           else
-            ./gradlew asD bunD
+            ./gradlew assembleDebug bundleDebug
             cp -f app/build/outputs/apk/debug/app-debug.apk ${{ env.repo }}-${{ env.version }}@${{ env.commit }}.apk
             cp -f app/build/outputs/bundle/debug/app-debug.aab ${{ env.repo }}-${{ env.version }}@${{ env.commit }}.aab
           fi
@@ -98,7 +92,7 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v2
-        if: github.event.inputs.release == 'true'
+        if: github.event.inputs.release
         with:
           tag_name: ${{ env.version }}
           draft: true
