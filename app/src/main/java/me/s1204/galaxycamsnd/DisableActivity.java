@@ -4,11 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
-import android.widget.Toast;
 
 import static android.content.Intent.*;
 import static android.content.pm.PackageManager.*;
@@ -29,14 +26,18 @@ public class DisableActivity extends Activity {
                     .setTitle(R.string.enable_shutter_sound)
                     .setIcon(getPackageManager().getApplicationIcon(getPackageName()))
                     .setMessage(R.string.dialog)
-                    // "はい"
+                    // "Yes"
                     .setPositiveButton(R.string.yes, (d, s) -> {
                         if (Settings.System.canWrite(this)) {
-                            Settings.System.putInt(getContentResolver(), CameraActivity.shutter_sound_volume, 1);
+                            // シャッター音を強制化
+                            Settings.System.putInt(getContentResolver(), CameraActivity.camera_forced_shuttersound_key, 1);
                             makeText(this, R.string.shutter_sound_enabled, LENGTH_LONG).show();
+
+                            // クラス無効化
                             ofDisable(CameraActivity.class);
                             ofDisable(BootCompletedReceiver.class);
                             ofDisable(DisableActivity.class);
+
                             // アンインストールを要求
                             startActivity(new Intent(ACTION_DELETE).setData(parse(CameraActivity.package_prefix + getPackageName())));
                         } else {
@@ -45,7 +46,7 @@ public class DisableActivity extends Activity {
                             startActivity(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, parse(CameraActivity.package_prefix + getPackageName())).setFlags(FLAG_ACTIVITY_NEW_TASK));
                         }
                     })
-                    // "いいえ"
+                    // "No"
                     .setNegativeButton(R.string.no, (d, s) -> finish())
                     .show();
         } catch (NameNotFoundException ignored) {

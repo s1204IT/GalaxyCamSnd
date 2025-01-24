@@ -3,7 +3,8 @@
 純正カメラアプリのシャッター音をオフにします
 
 > [!IMPORTANT]
-> このアプリは決して [**盗撮**](https://atomfirm.com/keiji/279) 等の犯罪を助長する為に作成したアプリではありません。
+> このアプリは決して [**盗撮**](https://atomfirm.com/keiji/279) 等の犯罪を助長する為に作成したアプリではありません。  
+> 利用者の責任において、法令及び公序良俗を遵守し、個人の範囲内でご利用ください。
 
 > [!NOTE]
 > One UI 6.0 ([Android 14](https://developer.android.com/about/versions/14/behavior-changes-all?hl=ja#minimum-target-api-level))以降では、｢お使いのスマートフォンに対応していないため...｣と表示され、パッケージインストーラーからアプリをインストールする事が出来なくなりました。  
@@ -16,7 +17,7 @@
 > ```
 > pm install −−bypass-low-target-sdk-block GalaxyCamSnd.apk
 > ```
-> ただし、`/data/local/tmp`等にコピーしないとインストール出来ない場合があります。
+> ただし、コンテキストの都合で、`/data/local/tmp` 等にコピーしないとインストール出来ない場合があります。
 
 ## インストール方法
 
@@ -34,7 +35,6 @@
 →アプリ内の通知設定  
 
 [![](https://github.com/s1204IT/GalaxyCamSnd/assets/52069677/e658c9cf-0ee8-4a04-bbc7-3c6666bab7b5)](#)
-
 
 ---
 

@@ -10,18 +10,19 @@ import android.widget.Toast;
 
 public class CameraActivity extends Activity {
 
-    protected static final String shutter_sound_volume = "csc_pref_camera_forced_shuttersound_key";
+    protected static final String camera_forced_shuttersound_key = "csc_pref_camera_forced_shuttersound_key";
     protected static final String camera_package = "com.sec.android.app.camera";
     protected static final String camera_activity = camera_package + ".Camera";
     protected static final String package_prefix = "package:";
 
+    /** @noinspection CallToPrintStackTrace*/
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         finishAndRemoveTask();
         Intent intent = null;
         if (Settings.System.canWrite(this)) {
             try {
-                Settings.System.putInt(getContentResolver(), shutter_sound_volume, 0);
+                Settings.System.putInt(getContentResolver(), camera_forced_shuttersound_key, 0);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
                 Toast.makeText(this, R.string.failed_write_value, Toast.LENGTH_LONG).show();

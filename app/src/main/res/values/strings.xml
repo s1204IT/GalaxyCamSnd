@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name" translatable="false">Galaxy CamSnd</string>
     <string name="disabled_camera">Silent Camera</string>
-    <string name="enable_shutter_sound">Enable shutter sound</string>
-    <string name="shutter_sound_enabled">Succeed enabling shutter sound</string>
+    <string name="enable_shutter_sound">Re-forced shutter sound</string>
+    <string name="shutter_sound_enabled">Succeeded forced shutter sound</string>
     <string name="request_write_permission">Please enable [Galaxy CamSnd]</string>
     <string name="failed_write_value">Failed write value</string>
     <string name="failed_launch_activity">Failed launch activity</string>
-    <string name="dialog">When you perform this feature, the shutter sound will be re-enabled.\nHowever, if you want to disable it again, you will need to reinstall this app.\n\nDo you want to continue?</string>
+    <string name="dialog">When you perform this feature, the shutter sound will be re-forced.\nHowever, if you want to disable it again, you will need to reinstall this app.\n\nDo you want to continue?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
 </resources>
