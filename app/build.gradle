@@ -10,7 +10,7 @@ android {
         minSdk = 28
         targetSdk = 22
         versionCode = 15
-        versionName = "1.4.3"
+        versionName = "1.5.0"
         multiDexEnabled = false
         proguardFiles += 'proguard-rules.pro'
     }

@@ -9,4 +9,7 @@
     <string name="dialog">When you perform this feature, the shutter sound will be re-forced.\nHowever, if you want to disable it again, you will need to reinstall this app.\n\nDo you want to continue?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="admin_receiver_status_enabled">Device admin was enabled.</string>
+    <string name="admin_receiver_status_disabled">Device admin was disabled.</string>
+    <string name="admin_receiver_status_disable_warning">Do you want to disable device admin?</string>
 </resources>
