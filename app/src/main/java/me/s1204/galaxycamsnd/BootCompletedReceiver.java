@@ -8,7 +8,7 @@ import android.provider.Settings;
 public class BootCompletedReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (Settings.System.canWrite(context)) {
-            Settings.System.putInt(context.getContentResolver(), CameraActivity.camera_forced_shuttersound_key, 0);
+            Settings.System.putInt(context.getContentResolver(), CameraActivity.CAMERA_FORCED_SHUTTERSOUND_KEY, 0);
         }
     }
 }

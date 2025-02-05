@@ -30,7 +30,7 @@ public class DisableActivity extends Activity {
                     .setPositiveButton(R.string.yes, (d, s) -> {
                         if (Settings.System.canWrite(this)) {
                             // シャッター音を強制化
-                            Settings.System.putInt(getContentResolver(), CameraActivity.camera_forced_shuttersound_key, 1);
+                            Settings.System.putInt(getContentResolver(), CameraActivity.CAMERA_FORCED_SHUTTERSOUND_KEY, 1);
                             makeText(this, R.string.shutter_sound_enabled, LENGTH_LONG).show();
 
                             // クラス無効化
@@ -39,11 +39,11 @@ public class DisableActivity extends Activity {
                             ofDisable(DisableActivity.class);
 
                             // アンインストールを要求
-                            startActivity(new Intent(ACTION_DELETE).setData(parse(CameraActivity.package_prefix + getPackageName())));
+                            startActivity(new Intent(ACTION_DELETE).setData(parse(CameraActivity.PACKAGE_PREFIX + getPackageName())));
                         } else {
                             finishAndRemoveTask();
                             makeText(this, R.string.request_write_permission, LENGTH_LONG).show();
-                            startActivity(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, parse(CameraActivity.package_prefix + getPackageName())).setFlags(FLAG_ACTIVITY_NEW_TASK));
+                            startActivity(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, parse(CameraActivity.PACKAGE_PREFIX + getPackageName())).setFlags(FLAG_ACTIVITY_NEW_TASK));
                         }
                     })
                     // "No"

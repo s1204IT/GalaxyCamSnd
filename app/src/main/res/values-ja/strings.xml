@@ -3,7 +3,9 @@
     <string name="enable_shutter_sound">シャッター音の再強制化</string>
     <string name="shutter_sound_enabled">シャッター音を有効にしました</string>
     <string name="request_write_permission">[Galaxy CamSnd] を有効にしてください</string>
+    <string name="ring_mode_warn">サウンドモードです</string>
     <string name="failed_write_value">値の書き込みに失敗しました</string>
+    <string name="failed_get_value">値の取得に失敗しました</string>
     <string name="failed_launch_activity">アクティビティの起動に失敗しました</string>
     <string name="dialog">この機能を実行すると、シャッター音が再強制化されます。\nただし、再度無効化する場合は、アプリをインストールし直す必要があります。\n\n続行しますか？</string>
     <string name="yes">はい</string>
