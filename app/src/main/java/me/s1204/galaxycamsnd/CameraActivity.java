@@ -36,7 +36,19 @@ public class CameraActivity extends Activity {
         if (Settings.System.canWrite(this)) {
             try {
                 doDisable(this, true);
-                if (Settings.Global.getInt(getContentResolver(), Settings.Global.MODE_RINGER) == 2) {
+                //noinspection DanglingJavadoc
+                if (Settings.Global.getInt(getContentResolver(), Settings.Global.MODE_RINGER) == 2 // サウンドモード
+                        && Settings.System.getInt(getContentResolver(), "volume_system_speaker") > 0 // システム音量が有効
+                        && Settings.Global.getInt(getContentResolver(), "zen_mode") == 0 // 通知をミュートが無効
+                        /**
+                         * この式だと、
+                         * サウンドモード：サウンド
+                         * システム音量：１以上
+                         * 通知をミュート：有効
+                         * >>>[通知をミュート]中に許可 の アラームとサウンド：タッチ操作音 がオン
+                         * この状態でもシャッター音が鳴ってしまうが、API が @hide なので仕方無い。
+                         */
+                ) {
                     makeToast(this, R.string.ring_mode_warn);
                 }
             } catch (IllegalArgumentException e) {
