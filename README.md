@@ -6,18 +6,17 @@
 > このアプリは決して [**盗撮**](https://atomfirm.com/keiji/279) 等の犯罪を助長する為に作成したアプリではありません。  
 > 利用者の責任において、法令及び公序良俗を遵守し、個人の範囲内でご利用ください。
 
+> [!IMPORTANT]
+> このアプリは、あくまでも**シャッター音の強制を解除するだけ**なので、  
+> **サウンドとバイブ** の設定が **サウンド** の場合、シャッター音は依然として鳴るので、  
+> **バイブ** または **サイレント** に切り替えてください。
+
 > [!NOTE]
 > One UI 6.0 ([Android 14](https://developer.android.com/about/versions/14/behavior-changes-all?hl=ja#minimum-target-api-level))以降では、｢お使いのスマートフォンに対応していないため...｣と表示され、パッケージインストーラーからアプリをインストールする事が出来なくなりました。  
 > [解決策を模索している](https://issuetracker.google.com/issues/323771601#comment4)ので、それまでは、ADBによるインストールをお願いします。
 > ```
 > adb install --bypass-low-target-sdk-block GalaxyCamSnd.apk
 > ```
-> ︎
-> [**Shizuku**](https://github.com/RikkaApps/Shizuku) を介して行う場合は以下のコマンドでインストール出来ます。
-> ```
-> pm install −−bypass-low-target-sdk-block GalaxyCamSnd.apk
-> ```
-> ただし、コンテキストの都合で、`/data/local/tmp` 等にコピーしないとインストール出来ない場合があります。
 
 ## インストール方法
 
@@ -30,23 +29,17 @@
 
 ### 無音化解除 / アンインストール方法
 設定アプリ  
-→アプリ  
-→Galaxy CamSnd  
-→アプリ内の通知設定  
+→<kbd>アプリ</kbd>  
+→<kbd>Galaxy CamSnd</kbd>  
+→<kbd>アプリ内の通知設定</kbd> または <kbd>Galaxy CamSndの設定</kbd>
 
-[![](https://github.com/s1204IT/GalaxyCamSnd/assets/52069677/e658c9cf-0ee8-4a04-bbc7-3c6666bab7b5)](#)
+[![1000026249](https://github.com/user-attachments/assets/6d08be20-7353-43ce-b077-65f13aee54c7)](#)
 
 ---
 
-## 検証端末
-- Galaxy S22 (One UI 6.0) ⭕
-- Galaxy S22 (One UI 5.1) ⭕
-- Galaxy S20 5G (One UI 5.1) ⭕
-- Galaxy S9+ (One UI 2.1) ⭕
-- Galaxy S8 (One UI 1.0) :warning: ❌  
-  ボリュームは小さくなるが消えはしない
-
-> [!NOTE]
-> 検証済み端末でもシャッター音が鳴る事が確認されています。  
-> このアプリ固有の問題では無いようです。  
-> 原因を特定中ですので解決するまでお待ちください。
+## 動作確認済み端末
+- Galaxy S22 (One UI 6.0)
+- Galaxy S22 (One UI 5.1)
+- Galaxy S20 5G (One UI 5.1)
+- Galaxy S9+ (One UI 2.1)
+- Galaxy S8 (One UI 1.0)
