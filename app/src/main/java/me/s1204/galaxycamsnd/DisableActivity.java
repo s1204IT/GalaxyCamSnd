@@ -10,13 +10,16 @@ import android.provider.Settings;
 import static android.content.Intent.*;
 import static android.content.pm.PackageManager.*;
 import static android.net.Uri.parse;
-import static android.widget.Toast.*;
+
+import static me.s1204.galaxycamsnd.CameraActivity.*;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 public class DisableActivity extends Activity {
 
-    private void ofDisable(Class<?> cls) {
+    private void ofDisable(Class<?> clazz) {
         // for でループさせると分割クラスが呼び出されるため使用不可
-        getPackageManager().setComponentEnabledSetting(new ComponentName(this, cls), COMPONENT_ENABLED_STATE_DISABLED, DONT_KILL_APP);
+        getPackageManager().setComponentEnabledSetting(new ComponentName(this, clazz), COMPONENT_ENABLED_STATE_DISABLED, DONT_KILL_APP);
     }
 
     public void onCreate(Bundle savedInstanceState) {
@@ -28,10 +31,11 @@ public class DisableActivity extends Activity {
                     .setMessage(R.string.dialog)
                     // "Yes"
                     .setPositiveButton(R.string.yes, (d, s) -> {
+                        AtomicReference<Intent> intent = new AtomicReference<>();
                         if (Settings.System.canWrite(this)) {
                             // シャッター音を強制化
-                            Settings.System.putInt(getContentResolver(), CameraActivity.CAMERA_FORCED_SHUTTERSOUND_KEY, 1);
-                            makeText(this, R.string.shutter_sound_enabled, LENGTH_LONG).show();
+                            doDisable(this, false);
+                            makeToast(this, R.string.shutter_sound_enabled);
 
                             // クラス無効化
                             ofDisable(CameraActivity.class);
@@ -39,12 +43,13 @@ public class DisableActivity extends Activity {
                             ofDisable(DisableActivity.class);
 
                             // アンインストールを要求
-                            startActivity(new Intent(ACTION_DELETE).setData(parse(CameraActivity.PACKAGE_PREFIX + getPackageName())));
+                            intent.set(new Intent(ACTION_DELETE).setData(parse(PACKAGE_PREFIX + getPackageName())));
                         } else {
                             finishAndRemoveTask();
-                            makeText(this, R.string.request_write_permission, LENGTH_LONG).show();
-                            startActivity(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, parse(CameraActivity.PACKAGE_PREFIX + getPackageName())).setFlags(FLAG_ACTIVITY_NEW_TASK));
+                            makeToast(this, R.string.request_write_permission);
+                            intent.set(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, parse(PACKAGE_PREFIX + getPackageName())).setFlags(FLAG_ACTIVITY_NEW_TASK));
                         }
+                        startActivity(intent.get());
                     })
                     // "No"
                     .setNegativeButton(R.string.no, (d, s) -> finish())

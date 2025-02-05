@@ -12,6 +12,4 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="admin_receiver_status_enabled">Device admin was enabled.</string>
-    <string name="admin_receiver_status_disabled">Device admin was disabled.</string>
-    <string name="admin_receiver_status_disable_warning">Do you want to disable device admin?</string>
 </resources>

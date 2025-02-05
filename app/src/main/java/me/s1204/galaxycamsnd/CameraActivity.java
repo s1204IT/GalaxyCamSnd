@@ -2,11 +2,14 @@ package me.s1204.galaxycamsnd;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.net.Uri;
 import android.provider.Settings;
 import android.widget.Toast;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 public class CameraActivity extends Activity {
 
@@ -15,34 +18,44 @@ public class CameraActivity extends Activity {
     protected static final String CAMERA_ACTIVITY = CAMERA_PACKAGE + ".Camera";
     protected static final String PACKAGE_PREFIX = "package:";
 
+    protected static void doDisable(Context context, boolean status) {
+        if (Settings.System.canWrite(context)) {
+            Settings.System.putInt(context.getContentResolver(), CAMERA_FORCED_SHUTTERSOUND_KEY, status ? 0 : 1);
+        }
+    }
+
+    protected static void makeToast(Context context, int resId) {
+        Toast.makeText(context, context.getString(resId), Toast.LENGTH_SHORT).show();
+    }
+
     /** @noinspection CallToPrintStackTrace*/
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         finishAndRemoveTask();
-        Intent intent = null;
+        AtomicReference<Intent> intent = new AtomicReference<>();
         if (Settings.System.canWrite(this)) {
             try {
-                Settings.System.putInt(getContentResolver(), CAMERA_FORCED_SHUTTERSOUND_KEY, 0);
+                doDisable(this, true);
                 if (Settings.Global.getInt(getContentResolver(), Settings.Global.MODE_RINGER) == 2) {
-                    Toast.makeText(this, R.string.ring_mode_warn, Toast.LENGTH_SHORT).show();
+                    makeToast(this, R.string.ring_mode_warn);
                 }
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
-                Toast.makeText(this, R.string.failed_write_value, Toast.LENGTH_LONG).show();
+                makeToast(this, R.string.failed_write_value);
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
-                Toast.makeText(this, R.string.failed_get_value, Toast.LENGTH_LONG).show();
+                makeToast(this, R.string.failed_get_value);
             }
             try {
-                 intent = new Intent().setClassName(CAMERA_PACKAGE, CAMERA_ACTIVITY);
+                 intent.set(new Intent().setClassName(CAMERA_PACKAGE, CAMERA_ACTIVITY));
             } catch (ActivityNotFoundException e) {
                 e.printStackTrace();
-                Toast.makeText(this, R.string.failed_launch_activity, Toast.LENGTH_LONG).show();
+                makeToast(this, R.string.failed_launch_activity);
             }
         } else {
-            Toast.makeText(this, R.string.request_write_permission, Toast.LENGTH_LONG).show();
-            intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(PACKAGE_PREFIX + getPackageName())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            makeToast(this, R.string.request_write_permission);
+            intent.set(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(PACKAGE_PREFIX + getPackageName())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
-        startActivity(intent);
+        startActivity(intent.get());
     }
 }

@@ -11,6 +11,4 @@
     <string name="yes">はい</string>
     <string name="no">いいえ</string>
     <string name="admin_receiver_status_enabled">端末管理者が有効になりました</string>
-    <string name="admin_receiver_status_disabled">端末管理者が無効になりました。</string>
-    <string name="admin_receiver_status_disable_warning">端末管理者を無効にしますか？</string>
 </resources>
