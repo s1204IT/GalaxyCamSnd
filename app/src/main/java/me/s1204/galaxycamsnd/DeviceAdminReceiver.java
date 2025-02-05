@@ -1,7 +1,5 @@
 package me.s1204.galaxycamsnd;
 
-import static me.s1204.galaxycamsnd.CameraActivity.doDisable;
-
 import android.content.Context;
 import android.content.Intent;
 
