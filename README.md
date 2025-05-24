@@ -24,7 +24,8 @@
 
 > [!NOTE]
 > One UI 6.0 ([Android 14](https://developer.android.com/about/versions/14/behavior-changes-all?hl=ja#minimum-target-api-level))以降では、｢お使いのスマートフォンに対応していないため...｣と表示され、パッケージインストーラーからアプリをインストールする事が出来なくなりました。  
-> [解決策を模索している](https://issuetracker.google.com/issues/323771601#comment4)ので、それまでは、ADBによるインストールをお願いします。
+> [**Android 6.0** 以降の仕様](https://issuetracker.google.com/issues/323771601#comment10)上、ADBによるインストールが必要です。  
+> 次のコマンドでインストールしてください：
 > ```
 > adb install --bypass-low-target-sdk-block GalaxyCamSnd.apk
 > ```
