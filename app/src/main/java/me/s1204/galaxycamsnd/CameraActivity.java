@@ -24,11 +24,10 @@ public class CameraActivity extends Activity {
         }
     }
 
-    protected static void makeToast(Context context, int resId) {
-        Toast.makeText(context, context.getString(resId), Toast.LENGTH_SHORT).show();
+    private void makeToast(int resId) {
+        runOnUiThread(() -> Toast.makeText(this, getString(resId), Toast.LENGTH_SHORT).show());
     }
 
-    /** @noinspection CallToPrintStackTrace*/
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         finishAndRemoveTask();
@@ -49,25 +48,22 @@ public class CameraActivity extends Activity {
                          * この状態でもシャッター音が鳴ってしまうが、API が @hide なので仕方無い。
                          */
                 ) {
-                    makeToast(this, R.string.ring_mode_warn);
+                    makeToast(R.string.ring_mode_warn);
                 }
             } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-                makeToast(this, R.string.failed_write_value);
+                makeToast(R.string.failed_write_value);
             } catch (Settings.SettingNotFoundException e) {
-                e.printStackTrace();
-                makeToast(this, R.string.failed_get_value);
+                makeToast(R.string.failed_get_value);
             }
-            try {
-                 intent.set(new Intent().setClassName(CAMERA_PACKAGE, CAMERA_ACTIVITY));
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-                makeToast(this, R.string.failed_launch_activity);
-            }
+            intent.set(new Intent().setClassName(CAMERA_PACKAGE, CAMERA_ACTIVITY));
         } else {
-            makeToast(this, R.string.request_write_permission);
+            makeToast(R.string.request_write_permission);
             intent.set(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse(PACKAGE_PREFIX + getPackageName())).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
-        startActivity(intent.get());
+        try {
+            startActivity(intent.get());
+        } catch (ActivityNotFoundException ignored) {
+            makeToast(R.string.failed_launch_activity);
+        }
     }
 }

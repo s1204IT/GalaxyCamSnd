@@ -9,8 +9,8 @@ android {
     defaultConfig {
         minSdk = 28
         targetSdk = 22
-        versionCode = 16
-        versionName = "1.6.0"
+        versionCode = 17
+        versionName = "1.7.0"
         multiDexEnabled = false
         proguardFiles += 'proguard-rules.pro'
     }
@@ -32,6 +32,11 @@ android {
             minifyEnabled = true
             shrinkResources = true
         }
+    }
+
+    androidResources {
+        //noinspection MissingResourcesProperties
+        generateLocaleConfig = true
     }
 
     dependenciesInfo {

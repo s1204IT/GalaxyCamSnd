@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import static android.content.Intent.*;
 import static android.content.pm.PackageManager.*;
@@ -22,6 +23,10 @@ public class DisableActivity extends Activity {
         getPackageManager().setComponentEnabledSetting(new ComponentName(this, clazz), COMPONENT_ENABLED_STATE_DISABLED, DONT_KILL_APP);
     }
 
+    private void makeToast(int resId) {
+        runOnUiThread(() -> Toast.makeText(this, getString(resId), Toast.LENGTH_SHORT).show());
+    }
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
@@ -35,7 +40,7 @@ public class DisableActivity extends Activity {
                         if (Settings.System.canWrite(this)) {
                             // シャッター音を強制化
                             doDisable(this, false);
-                            makeToast(this, R.string.shutter_sound_enabled);
+                            makeToast(R.string.shutter_sound_enabled);
 
                             // クラス無効化
                             ofDisable(CameraActivity.class);
@@ -46,7 +51,7 @@ public class DisableActivity extends Activity {
                             intent.set(new Intent(ACTION_DELETE).setData(parse(PACKAGE_PREFIX + getPackageName())));
                         } else {
                             finishAndRemoveTask();
-                            makeToast(this, R.string.request_write_permission);
+                            makeToast(R.string.request_write_permission);
                             intent.set(new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, parse(PACKAGE_PREFIX + getPackageName())).setFlags(FLAG_ACTIVITY_NEW_TASK));
                         }
                         startActivity(intent.get());

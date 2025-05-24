@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="disabled_camera">무음카메라</string>
+    <string name="enable_shutter_sound">셔터사운드재강제화</string>
+    <string name="shutter_sound_enabled">셔터 소리를 강제화했습니다</string>
+    <string name="request_write_permission">[Galaxy CamSnd]를 사용 설정하세요</string>
+    <string name="ring_mode_warn">사운드모드입니다</string>
+    <string name="failed_write_value">값을쓰지못했습니다</string>
+    <string name="failed_get_value">값을가져오지못했습니다</string>
+    <string name="failed_launch_activity">활동을시작하지못했습니다</string>
+    <string name="dialog">이 기능을 실행하면 셔터 사운드가 다시 강제됩니다. \n다시 다시 사용 중지하려면 앱을 다시 설치해야 합니다. \n\n계속하시겠습니까?</string>
+    <string name="yes">예</string>
+    <string name="no">아니오</string>
+</resources>
